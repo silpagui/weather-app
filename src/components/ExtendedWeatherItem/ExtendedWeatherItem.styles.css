@@ -1,0 +1,43 @@
+.day-extended {
+  display: block;
+  text-align: center;
+  background-color: #1e213a;
+  font-size: 16px;
+  line-height: 19px;
+  padding: 0 10px 12px;
+  position: relative;
+}
+
+.day-extended img {
+  width: 80%;
+  margin: 10px 0px 30px;
+}
+
+.extended-day-item {
+  padding-top: 18px;
+}
+
+.description-day {
+  position: absolute;
+  bottom: 16px;
+  right: 10px;
+  left: 10px;
+}
+
+.description-day p {
+  display: inline-block;
+}
+
+.description-day p:last-child {
+  margin-left: 16px;
+}
+
+@media screen and (max-width: 728px) {
+  .day-extended {
+    margin-bottom: 32px;
+  }
+
+  .day-extended:last-child {
+    margin-bottom: 0px;
+  }
+}

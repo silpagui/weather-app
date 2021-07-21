@@ -1,0 +1,18 @@
+.app-container {
+  display: flex;
+  font-family: "Raleway", sans-serif;
+  font-weight: 500;
+  color: #e7e7eb;
+}
+
+@media screen and (max-width: 728px) {
+  .app-container {
+    display: block;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .app-container {
+    display: block;
+  }
+}

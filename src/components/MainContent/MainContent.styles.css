@@ -1,0 +1,43 @@
+.main-content {
+  width: 65%;
+  background-color: #100e1d;
+  padding: 42px 10% 25px;
+}
+
+.buttons {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 66px;
+}
+
+.title {
+  font-size: 24px;
+  line-height: 28px;
+  margin: 72px 0px 54px;
+}
+
+.copy {
+  font-weight: 500;
+  font-size: 14px;
+  text-align: center;
+}
+
+@media screen and (max-width: 728px) {
+  .copy {
+    margin-top: 96px;
+  }
+
+  .main-content {
+    width: auto;
+    padding: 52px 23px 24px;
+  }
+
+  .buttons {
+    display: none;
+  }
+}
+
+a {
+  text-decoration: underline;
+  color: #e7e7eb;
+}

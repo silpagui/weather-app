@@ -1,0 +1,76 @@
+.cloud-container {
+  width: 150px;
+  height: 90px;
+  position: relative;
+  display: block;
+}
+
+.cloud-bar {
+  position: absolute;
+  display: block;
+  top: 55%;
+  right: 20%;
+  left: 20%;
+  bottom: 10%;
+  background: rgb(247, 243, 243);
+  transform: scale(1);
+  animation: pulse 6s ease 0s infinite;
+}
+
+.cloud {
+  display: block;
+  position: absolute;
+  border-radius: 50%;
+}
+
+.cloud-circle-1 {
+  height: 100%;
+  right: -20%;
+  left: 80%;
+  background: rgb(247, 243, 243);
+  animation: pulse 6s ease 0s infinite;
+}
+
+.cloud-circle-2 {
+  bottom: 50%;
+  right: 0;
+  top: -50%;
+  left: 70%;
+  background: rgb(247, 243, 243);
+  animation: pulse 6s ease 0s infinite;
+}
+
+.cloud-circle-3 {
+  bottom: 5%;
+  left: 0;
+  top: -90%;
+  right: 25%;
+  background: rgb(241, 238, 238);
+  animation: pulse 6s ease 0s infinite;
+}
+
+.cloud-circle-4 {
+  bottom: 0;
+  left: -20%;
+  top: -10%;
+  right: 80%;
+  background: rgb(241, 238, 238);
+  animation: pulse 6s ease 0s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    background: rgb(255, 255, 255);
+  }
+
+  50% {
+    transform: scale(1.1);
+    background: rgb(230, 230, 230);
+  }
+
+  100% {
+    transform: scale(1);
+    background: rgb(255, 255, 255);
+  }
+}

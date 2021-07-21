@@ -1,0 +1,41 @@
+.highlights {
+  display: block;
+  text-align: center;
+  background-color: #1e213a;
+  font-size: 16px;
+  line-height: 19px;
+  padding: 0 10px 12px;
+}
+
+.title-highlights {
+  padding-top: 18px;
+  margin-bottom: 6px;
+}
+
+.data-number,
+.data-unit {
+  display: inline-block;
+  margin-bottom: 30px;
+}
+
+.data-number {
+  font-weight: 500;
+  font-size: 64px;
+  line-height: 75px;
+}
+
+.data-unit {
+  font-weight: 400;
+  font-size: 36px;
+  line-height: 42px;
+}
+
+@media screen and (max-width: 728px) {
+  .highlights {
+    margin-bottom: 32px;
+  }
+
+  .highlights:last-child {
+    margin-bottom: 0px;
+  }
+}

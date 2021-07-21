@@ -1,0 +1,13 @@
+.description p {
+  display: inline-block;
+}
+
+.description p:last-child {
+  margin-left: 16px;
+}
+
+.navigation {
+  width: 7%;
+  background: #6e707a;
+  border-radius: 30px;
+}

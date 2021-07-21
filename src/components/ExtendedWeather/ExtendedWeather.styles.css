@@ -1,0 +1,26 @@
+.week-weather {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: auto;
+  column-gap: 5%;
+}
+
+@media screen and (max-width: 728px) {
+  .week-weather {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    column-gap: 26px;
+    row-gap: 32px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .week-weather {
+    display: block;
+    margin-bottom: 30px;
+  }
+
+  .week-weather:last-child {
+    margin-bottom: 0px;
+  }
+}
