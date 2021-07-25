@@ -1,16 +1,6 @@
-/* .app-loader {
-  position: absolute;
-  top: 0;
-  right: 0;
-  left: 0;
-  bottom: 0;
-  z-index: 100;
-  background: rgba(0, 0, 0, 0.5);
-} */
-
 .loader-container {
   display: flex;
-  position: absolute;
+  position: fixed;
   top: 0;
   right: 0;
   left: 0;
@@ -24,7 +14,3 @@
 .cloud-1 {
   z-index: 1;
 }
-
-/* body {
-  background: rgb(11, 11, 63);
-} */
