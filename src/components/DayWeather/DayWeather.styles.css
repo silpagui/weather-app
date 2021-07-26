@@ -53,13 +53,15 @@
 
 .input-search {
   color: #616475;
-  background: url(../../assets/images/search.png) no-repeat left;
+  background: url(../../assets/images/search-icon.svg) no-repeat left;
   margin-right: 12px;
-  background-size: 30px 30px;
+  background-size: 17.06px 17.06px;
   box-sizing: border-box;
   width: 90%;
   border: 1px solid #e7e7eb;
-  padding: 15px 0px 15px 30px;
+  padding: 15px 0px 15px 48px;
+  outline: none;
+  background-position-x: 15px;
 }
 
 .city-to-search button {
