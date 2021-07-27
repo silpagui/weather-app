@@ -19,13 +19,14 @@
 }
 
 .data-number {
-  font-weight: 500;
+  font-weight: 700;
   font-size: 64px;
   line-height: 75px;
+  margin: 0 5px 0 0;
 }
 
 .data-unit {
-  font-weight: 400;
+  font-weight: 500;
   font-size: 36px;
   line-height: 42px;
 }
