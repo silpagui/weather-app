@@ -67,7 +67,10 @@
   color: #e7e7eb;
   margin-bottom: 50px;
   padding: 15px 5px;
-  display: block;
+  padding: 15px 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   background: transparent;
   box-sizing: border-box;
   border: 1px solid transparent;
@@ -85,6 +88,17 @@
 
 .city-to-search button:hover {
   border-color: #e7e7eb;
+}
+
+.go-arrow {
+  width: 6.59px;
+  height: 11.17px;
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.city-to-search button:hover .go-arrow {
+  opacity: 1;
 }
 
 .search {
