@@ -15,7 +15,6 @@
 .data-number,
 .data-unit {
   display: inline-block;
-  margin-bottom: 30px;
 }
 
 .data-number {
