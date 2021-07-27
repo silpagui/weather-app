@@ -1,5 +1,7 @@
-.description p {
-  display: inline-block;
+.description {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .description p:last-child {
@@ -7,7 +9,9 @@
 }
 
 .navigation {
-  width: 7%;
+  width: 10.55px;
+  height: 12.53px;
+  padding: 10px;
   background: #6e707a;
   border-radius: 30px;
 }
