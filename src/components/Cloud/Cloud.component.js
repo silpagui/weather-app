@@ -7,7 +7,8 @@ export function Cloud({ className }) {
   return (
     <span className={`cloud-container ${className}`}>
       <span className="cloud-bar">
-        {cloudsCircle.map((cloudNumber) => {
+        {cloudsCircle.map((x, index) => {
+          const cloudNumber = index + 1;
           return (
             <span
               className={`cloud cloud-circle-${cloudNumber}`}
