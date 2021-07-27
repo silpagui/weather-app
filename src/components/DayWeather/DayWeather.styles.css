@@ -114,6 +114,10 @@
   box-sizing: border-box;
 }
 
+.search:hover {
+  background: #232a8a;
+}
+
 .background-aside {
   top: 0;
   right: 0;
