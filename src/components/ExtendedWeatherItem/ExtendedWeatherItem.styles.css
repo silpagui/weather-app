@@ -30,6 +30,7 @@
 
 .description-day p:last-child {
   margin-left: 16px;
+  color: #a09fb1;
 }
 
 @media screen and (max-width: 728px) {
