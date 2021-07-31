@@ -33,7 +33,7 @@
   color: #a09fb1;
 }
 
-@media screen and (max-width: 728px) {
+@media screen and (max-width: 768px) {
   .day-extended {
     margin-bottom: 32px;
   }

@@ -37,7 +37,8 @@ export function MainContent({
         windDirectionDegrees={windDirectionDegrees}
       />
       <p className="copy">
-        created by <a href="index.html">silpagui</a> - devChallenges.io
+        created by <a href="https://github.com/silpagui">silpagui</a> -
+        devChallenges.io
       </p>
     </div>
   );

@@ -22,14 +22,19 @@
   text-align: center;
 }
 
-@media screen and (max-width: 728px) {
+@media screen and (max-width: 1280px) {
+  .main-content {
+    padding: 52px 23px 24px;
+  }
+}
+
+@media screen and (max-width: 768px) {
   .copy {
     margin-top: 96px;
   }
 
   .main-content {
     width: auto;
-    padding: 52px 23px 24px;
   }
 
   .buttons {

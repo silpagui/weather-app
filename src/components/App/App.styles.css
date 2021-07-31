@@ -5,7 +5,7 @@
   color: #e7e7eb;
 }
 
-@media screen and (max-width: 728px) {
+@media screen and (max-width: 768px) {
   .app-container {
     display: block;
   }

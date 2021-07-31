@@ -15,8 +15,7 @@
   height: 100%;
   background: #1e213a;
   transition: left 0.3s linear;
-  display: flex;
-  flex-direction: column;
+  text-align: right;
   padding: 19px 46px 0;
   box-sizing: border-box;
 }
@@ -26,7 +25,6 @@
 }
 
 .close-btn {
-  align-self: flex-end;
   cursor: pointer;
   background-color: #1e213a;
   border: none;
@@ -80,6 +78,7 @@
   line-height: 19px;
   width: 100%;
   text-align: left;
+  cursor: pointer;
 }
 
 .city-to-search button:last-child {
@@ -196,7 +195,7 @@
   margin-right: 10px;
 }
 
-@media screen and (max-width: 728px) {
+@media screen and (max-width: 768px) {
   .aside {
     width: auto;
     padding-bottom: 100px;

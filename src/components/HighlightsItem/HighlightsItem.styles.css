@@ -30,7 +30,7 @@
   line-height: 42px;
 }
 
-@media screen and (max-width: 728px) {
+@media screen and (max-width: 768px) {
   .highlights {
     margin-bottom: 32px;
   }

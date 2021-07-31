@@ -7,8 +7,7 @@ export function Sun() {
   return (
     <span className="sun-container">
       <span className="sun">
-        {sunRays.map((x, index) => {
-          const sunRay = index + 1;
+        {sunRays.map((x, sunRay) => {
           return (
             <span className={`sun-ray sun-ray-${sunRay}`} key={sunRay}></span>
           );

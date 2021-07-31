@@ -29,42 +29,42 @@
   transform-origin: 180% 50%;
 }
 
-.sun-ray-1 {
+.sun-ray-0 {
   transform: rotate(0deg) scale(0.9);
   animation: opacity-pulse 3s ease 1s infinite;
 }
 
-.sun-ray-2 {
+.sun-ray-1 {
   transform: rotate(45deg);
   animation: opacity-pulse 3s ease 0s infinite;
 }
 
-.sun-ray-3 {
+.sun-ray-2 {
   transform: rotate(90deg) scale(0.9);
   animation: opacity-pulse 3s ease 1s infinite;
 }
 
-.sun-ray-4 {
+.sun-ray-3 {
   transform: rotate(135deg);
   animation: opacity-pulse 3s ease 0s infinite;
 }
 
-.sun-ray-5 {
+.sun-ray-4 {
   transform: rotate(180deg) scale(0.9);
   animation: opacity-pulse 3s ease 1s infinite;
 }
 
-.sun-ray-6 {
+.sun-ray-5 {
   transform: rotate(225deg);
   animation: opacity-pulse 3s ease 0s infinite;
 }
 
-.sun-ray-7 {
+.sun-ray-6 {
   transform: rotate(270deg) scale(0.9);
   animation: opacity-pulse 3s ease 1s infinite;
 }
 
-.sun-ray-8 {
+.sun-ray-7 {
   transform: rotate(315deg);
   animation: opacity-pulse 3s ease 0s infinite;
 }
