@@ -17,6 +17,8 @@ export function DayWeather({
   setCity,
   cityResults,
   setSelectedCityId,
+  setCoords,
+  setIsLoading,
 }) {
   const [cityToBeSearch, setCityToBeSearch] = useState("");
 
@@ -45,7 +47,23 @@ export function DayWeather({
       <div className="btn-container">
         <SearchButton onClick={handleOnClick} />
 
-        <RoundButton imgSRC={<img src={gpsSRC} alt="gps-icon" />} />
+        <RoundButton
+          imgSRC={<img src={gpsSRC} alt="gps-icon" />}
+          onClick={() => {
+            setIsLoading(true);
+            navigator.geolocation.getCurrentPosition(
+              function success(position) {
+                const lat = position.coords.latitude;
+                const long = position.coords.longitude;
+                setCoords({ lat: lat, long: long });
+              },
+              function error(error) {
+                setIsLoading(false);
+                console.warn("Geolocation Error", error);
+              }
+            );
+          }}
+        />
       </div>
 
       <div className={`search-aside ${showSearchClass}`}>

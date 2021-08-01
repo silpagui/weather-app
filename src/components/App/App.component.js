@@ -58,11 +58,47 @@ export function App() {
 
   const [showSearch, setShowSearch] = useState(false);
 
-  const [selectedCityId, setSelectedCityId] = useState(638242);
+  const [selectedCityId, setSelectedCityId] = useState("");
 
   const [cityResults, setCityResults] = useState([]);
 
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
+
+  const [coords, setCoords] = useState({ lat: "", long: "" });
+
+  useEffect(() => {
+    setIsLoading(true);
+    navigator.geolocation.getCurrentPosition(
+      function success(position) {
+        const lat = position.coords.latitude;
+        const long = position.coords.longitude;
+        setCoords({ lat: lat, long: long });
+      },
+      function error(error) {
+        setIsLoading(false);
+        console.warn("Geolocation Error", error);
+      }
+    );
+  }, [setCoords, setIsLoading]);
+
+  useEffect(
+    function getCityByLocation() {
+      if (coords.lat && coords.long) {
+        setIsLoading(true);
+        axios(
+          `https://cors-anywhere.herokuapp.com/https://www.metaweather.com/api/location/search/?lattlong=${coords.lat},${coords.long}`
+        )
+          .then(function (response) {
+            const woeid = response.data[0].woeid;
+            setSelectedCityId(woeid);
+          })
+          .finally(() => {
+            setIsLoading(false);
+          });
+      }
+    },
+    [coords, setIsLoading, setSelectedCityId]
+  );
 
   useEffect(
     function updateWeatherData() {
@@ -161,6 +197,8 @@ export function App() {
         setCity={setCity}
         cityResults={cityResults}
         setSelectedCityId={setSelectedCityId}
+        setCoords={setCoords}
+        setIsLoading={setIsLoading}
       />
       <MainContent
         todayWindSpeed={todayWeather.windSpeed || 0}
