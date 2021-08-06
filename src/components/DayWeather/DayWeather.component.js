@@ -4,6 +4,7 @@ import gpsSRC from "../../assets/images/GPS-icon.png";
 import { SearchButton } from "../SearchButton/SearchButton.component";
 import { RoundButton } from "../RoundButton/RoundButton.component";
 import { useState } from "react";
+import { getLatLong } from "../../core/core.utils";
 
 export function DayWeather({
   todayTemp,
@@ -51,17 +52,9 @@ export function DayWeather({
           imgSRC={<img src={gpsSRC} alt="gps-icon" />}
           onClick={() => {
             setIsLoading(true);
-            navigator.geolocation.getCurrentPosition(
-              function success(position) {
-                const lat = position.coords.latitude;
-                const long = position.coords.longitude;
-                setCoords({ lat: lat, long: long });
-              },
-              function error(error) {
-                setIsLoading(false);
-                console.warn("Geolocation Error", error);
-              }
-            );
+            getLatLong(setCoords, () => {
+              setIsLoading(false);
+            });
           }}
         />
       </div>
