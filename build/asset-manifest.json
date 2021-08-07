@@ -1,0 +1,27 @@
+{
+  "files": {
+    "main.css": "/static/css/main.548049e2.chunk.css",
+    "main.js": "/static/js/main.705e3c36.chunk.js",
+    "main.js.map": "/static/js/main.705e3c36.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.0fb9f21a.js",
+    "runtime-main.js.map": "/static/js/runtime-main.0fb9f21a.js.map",
+    "static/js/2.eec2cb15.chunk.js": "/static/js/2.eec2cb15.chunk.js",
+    "static/js/2.eec2cb15.chunk.js.map": "/static/js/2.eec2cb15.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/main.548049e2.chunk.css.map": "/static/css/main.548049e2.chunk.css.map",
+    "static/js/2.eec2cb15.chunk.js.LICENSE.txt": "/static/js/2.eec2cb15.chunk.js.LICENSE.txt",
+    "static/media/Clear.6e4f36b6.png": "/static/media/Clear.6e4f36b6.png",
+    "static/media/DayWeather.styles.css": "/static/media/search-icon.4cbb2ce0.svg",
+    "static/media/LightCloud.edc43777.png": "/static/media/LightCloud.edc43777.png",
+    "static/media/Navigation.c8b648cb.png": "/static/media/Navigation.c8b648cb.png",
+    "static/media/Shower.ea1e199a.png": "/static/media/Shower.ea1e199a.png",
+    "static/media/Sleet.6ef96c5a.png": "/static/media/Sleet.6ef96c5a.png",
+    "static/media/location.531cdd1e.png": "/static/media/location.531cdd1e.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.0fb9f21a.js",
+    "static/js/2.eec2cb15.chunk.js",
+    "static/css/main.548049e2.chunk.css",
+    "static/js/main.705e3c36.chunk.js"
+  ]
+}
