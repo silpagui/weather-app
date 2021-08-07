@@ -4,7 +4,6 @@ function buildURLProxy(url) {
   return `https://cors-anywhere.herokuapp.com/${url}`;
 }
 
-// NOTE: Necesito saber lat long para usar esto
 function getLatLongSearchURL(lat, long) {
   return buildURLProxy(
     `https://www.metaweather.com/api/location/search/?lattlong=${lat},${long}`
@@ -13,10 +12,17 @@ function getLatLongSearchURL(lat, long) {
 
 export function searchWOEIDByLatLong(lat, long) {
   const searchURL = getLatLongSearchURL(lat, long);
-  return axios(searchURL).then(function (response) {
-    const woeid = response.data[0].woeid;
-    return woeid;
-  });
+  return axios(searchURL)
+    .then(function (response) {
+      const woeid = response.data[0].woeid;
+      return woeid;
+    })
+    .catch((error) => {
+      console.warn(
+        `Error looking for woeid with coords lat:${lat} long:${long} :`,
+        error
+      );
+    });
 }
 
 function getWeatherDataURL(cityID) {
@@ -30,7 +36,7 @@ export function getWeatherData(cityID) {
       return response.data;
     })
     .catch((error) => {
-      console.warn(`Error looking for weather on ${cityID}: `, error);
+      console.warn(`Error looking for weather on city: ${cityID}: `, error);
     });
 }
 

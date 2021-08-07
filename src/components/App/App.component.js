@@ -4,8 +4,13 @@ import "./App.styles.css";
 import { DayWeather } from "../DayWeather/DayWeather.component.js";
 import { MainContent } from "../MainContent/MainContent.component.js";
 import { Loader } from "../Loader/Loader.component";
-import { imgDictionary, weekDays, months } from "../../core/core.constants";
-import { celsiusToFah, getLatLong } from "../../core/core.utils";
+import {
+  celsiusToFah,
+  getLatLong,
+  getImgByWeatherStateName,
+  humanizeDate,
+  roundDayPropertyNumbers,
+} from "../../core/core.utils";
 import {
   getCitiesList,
   getWeatherData,
@@ -25,10 +30,11 @@ export function App() {
   useEffect(
     function updateLatLong() {
       setIsLoading(true);
-
-      getLatLong(setCoords, () => {
-        setIsLoading(false);
-      });
+      getLatLong()
+        .then(setCoords)
+        .finally(() => {
+          setIsLoading(false);
+        });
     },
     [setCoords, setIsLoading]
   );
@@ -79,28 +85,23 @@ export function App() {
 
   const allDaysWeatherParsed = allDaysWeather.map(function (day, index) {
     const weatherState = day.weather_state_name;
-    const weatherImgName = weatherState.replaceAll(" ", "");
-    const weatherImgSRC = imgDictionary[weatherImgName];
-
-    const date = new Date(day.applicable_date);
-    const todayName = weekDays[date.getDay()];
-    const todayNumber = date.getDate();
-    const todayMonth = months[date.getMonth()];
-    const parsedFullDate = `${todayName}, ${todayNumber} ${todayMonth}`;
+    const weatherImgSRC = getImgByWeatherStateName(weatherState);
+    const parsedFullDate = humanizeDate(day.applicable_date);
     const parsedDate = index === 1 ? "Tomorrow" : parsedFullDate;
+    const parsedDay = roundDayPropertyNumbers(day);
 
     return {
-      temp: celsius ? Math.round(day.the_temp) : celsiusToFah(day.the_temp),
-      weatherState: day.weather_state_name,
-      windSpeed: Math.round(day.wind_speed),
-      humidity: day.humidity,
-      visibility: Math.round(day.visibility),
-      airPressure: Math.round(day.air_pressure),
-      windDirection: day.wind_direction_compass,
-      windDirectionDegrees: day.wind_direction,
+      temp: celsius ? parsedDay.the_temp : celsiusToFah(parsedDay.the_temp),
+      weatherState: parsedDay.weather_state_name,
+      windSpeed: parsedDay.wind_speed,
+      humidity: parsedDay.humidity,
+      visibility: parsedDay.visibility,
+      airPressure: parsedDay.air_pressure,
+      windDirection: parsedDay.wind_direction_compass,
+      windDirectionDegrees: parsedDay.wind_direction,
       weatherImgSRC: weatherImgSRC,
-      minTemp: celsius ? Math.round(day.min_temp) : celsiusToFah(day.min_temp),
-      maxTemp: celsius ? Math.round(day.max_temp) : celsiusToFah(day.max_temp),
+      minTemp: celsius ? parsedDay.min_temp : celsiusToFah(parsedDay.min_temp),
+      maxTemp: celsius ? parsedDay.max_temp : celsiusToFah(parsedDay.max_temp),
       date: parsedDate,
       unit: celsius ? "ºC" : "ºF",
     };
