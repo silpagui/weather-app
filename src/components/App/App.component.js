@@ -4,6 +4,8 @@ import "./App.styles.css";
 import { DayWeather } from "../DayWeather/DayWeather.component.js";
 import { MainContent } from "../MainContent/MainContent.component.js";
 import { Loader } from "../Loader/Loader.component";
+import { TooManyRequestsMessage } from "../TooManyRequestsMessage/TooManyRequestsMessage.component";
+import { RequestAccessMessage } from "../RequestAccessMessage/RequestAccessMessage.component";
 import {
   celsiusToFah,
   getLatLong,
@@ -22,10 +24,14 @@ export function App() {
   const [allData, setAllData] = useState({});
   const [city, setCity] = useState("");
   const [showSearch, setShowSearch] = useState(false);
-  const [selectedCityId, setSelectedCityId] = useState("");
+  const [selectedCityId, setSelectedCityId] = useState("638242"); // NOTE: Berlin ID by default
   const [cityResults, setCityResults] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [coords, setCoords] = useState({ lat: "", long: "" });
+  const [showRequestAccessMessage, setShowRequestAccessMessage] =
+    useState(false);
+  const [showTooManyRequestsMessage, setShowTooManyRequestsMessage] =
+    useState(false);
 
   useEffect(
     function updateLatLong() {
@@ -63,6 +69,18 @@ export function App() {
         setIsLoading(true);
         getWeatherData(selectedCityId)
           .then(setAllData)
+          .catch((error) => {
+            if (error.response.status === 403) {
+              setShowRequestAccessMessage(true);
+            } else if (error.response.status === 429) {
+              setShowTooManyRequestsMessage(true);
+            } else {
+              console.warn(
+                `Error looking for weather on city: ${selectedCityId}: `,
+                error
+              );
+            }
+          })
           .finally(() => {
             setIsLoading(false);
           });
@@ -116,35 +134,39 @@ export function App() {
   const location = allData.title || "";
 
   return (
-    <div className="app-container">
-      {isLoading && <Loader />}
+    <div>
+      {showTooManyRequestsMessage && <TooManyRequestsMessage />}
+      {showRequestAccessMessage && <RequestAccessMessage />}
+      <div className="app-container">
+        {isLoading && <Loader />}
 
-      <DayWeather
-        todayTemp={todayWeather.temp || 0}
-        weatherState={todayWeather.weatherState || ""}
-        date={todayWeather.date}
-        location={location}
-        weatherImgSRC={todayWeather.weatherImgSRC || ""}
-        unit={todayWeather.unit}
-        showSearch={showSearch}
-        setShowSearch={setShowSearch}
-        setCity={setCity}
-        cityResults={cityResults}
-        setSelectedCityId={setSelectedCityId}
-        setCoords={setCoords}
-        setIsLoading={setIsLoading}
-      />
-      <MainContent
-        todayWindSpeed={todayWeather.windSpeed || 0}
-        humidity={todayWeather.humidity || 0}
-        visibility={todayWeather.visibility || 0}
-        airPressure={todayWeather.airPressure || 0}
-        windDirection={todayWeather.windDirection || ""}
-        extendedWeather={extendedWeather}
-        celsius={celsius}
-        setCelsius={setCelsius}
-        windDirectionDegrees={todayWeather.windDirectionDegrees}
-      />
+        <DayWeather
+          todayTemp={todayWeather.temp || 0}
+          weatherState={todayWeather.weatherState || ""}
+          date={todayWeather.date}
+          location={location}
+          weatherImgSRC={todayWeather.weatherImgSRC || ""}
+          unit={todayWeather.unit}
+          showSearch={showSearch}
+          setShowSearch={setShowSearch}
+          setCity={setCity}
+          cityResults={cityResults}
+          setSelectedCityId={setSelectedCityId}
+          setCoords={setCoords}
+          setIsLoading={setIsLoading}
+        />
+        <MainContent
+          todayWindSpeed={todayWeather.windSpeed || 0}
+          humidity={todayWeather.humidity || 0}
+          visibility={todayWeather.visibility || 0}
+          airPressure={todayWeather.airPressure || 0}
+          windDirection={todayWeather.windDirection || ""}
+          extendedWeather={extendedWeather}
+          celsius={celsius}
+          setCelsius={setCelsius}
+          windDirectionDegrees={todayWeather.windDirectionDegrees}
+        />
+      </div>
     </div>
   );
 }

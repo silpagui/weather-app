@@ -31,13 +31,9 @@ function getWeatherDataURL(cityID) {
 
 export function getWeatherData(cityID) {
   const weatherDataURL = getWeatherDataURL(cityID);
-  return axios(weatherDataURL)
-    .then((response) => {
-      return response.data;
-    })
-    .catch((error) => {
-      console.warn(`Error looking for weather on city: ${cityID}: `, error);
-    });
+  return axios(weatherDataURL).then((response) => {
+    return response.data;
+  });
 }
 
 function getSearchCitiesURL(city) {
