@@ -31,7 +31,11 @@ export function App() {
     function updateLatLong() {
       setIsLoading(true);
       getLatLong()
-        .then(setCoords)
+        .then((coords) => {
+          if (coords) {
+            setCoords(coords);
+          }
+        })
         .finally(() => {
           setIsLoading(false);
         });

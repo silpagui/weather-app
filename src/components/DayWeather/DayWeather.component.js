@@ -52,9 +52,15 @@ export function DayWeather({
           imgSRC={<img src={gpsSRC} alt="gps-icon" />}
           onClick={() => {
             setIsLoading(true);
-            getLatLong(setCoords, () => {
-              setIsLoading(false);
-            });
+            getLatLong()
+              .then((coords) => {
+                if (coords) {
+                  setCoords(coords);
+                }
+              })
+              .finally(() => {
+                setIsLoading(false);
+              });
           }}
         />
       </div>
